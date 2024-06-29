@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "980240219979",
+    "project_id": "darth-coders",
+    "storage_bucket": "darth-coders.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980240219979:android:a805d4ffd16672a65f72ce",
+        "android_client_info": {
+          "package_name": "boilerplate.template.riverpod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980240219979-1ih8a6auiifravonp2oervlkjjj269p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsB7AlfRlK4kimgPPurMd_ljeNFaG52lc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980240219979-1ih8a6auiifravonp2oervlkjjj269p3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "980240219979-j5kmm3l2qkhmoqb4ngt3kibe5hdsntn3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "boilerplate.template.riveprod"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
