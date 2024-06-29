@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
 import '../../../constants/colors.dart';
+import '../../../router/app_router.dart';
 
 class AppleLoginButton extends ConsumerWidget {
   const AppleLoginButton({super.key});
@@ -35,7 +37,9 @@ class GoogleLoginButton extends ConsumerWidget {
           backgroundColor: Colors.white,
           text: 'Google ile devam et',
           textColor: AppColors.tertieryText,
-          onPressed: () async {},
+          onPressed: () {
+            context.go(SGRoute.home.route);
+          },
           borderRadius: 30),
     );
   }

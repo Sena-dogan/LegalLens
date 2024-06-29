@@ -24,7 +24,9 @@ class LoginScreen extends StatelessWidget {
             const Spacer(),
             Text(
               'We are here',
-              style: context.textTheme.displaySmall,
+              style: context.textTheme.displaySmall?.copyWith(
+                color: Colors.white,
+              ),
             ),
             Text(
               'to help you!',
@@ -34,10 +36,12 @@ class LoginScreen extends StatelessWidget {
             ),
             const Gap(20),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 35),
               child: Text(
                 'Our app helps you make sense of privacy policies and terms of use with a chatbot interface.',
-                style: context.textTheme.bodyLarge,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: Colors.white,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
