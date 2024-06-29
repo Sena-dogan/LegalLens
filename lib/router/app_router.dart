@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 
 import '../data/getstore/get_store_helper.dart';
 import '../di/components/service_locator.dart';
+import '../features/auth/login_screen.dart';
 import '../features/home/home.dart';
 import '../features/info/info_screen.dart';
 import 'fade_extension.dart';
@@ -30,7 +31,7 @@ enum SGRoute {
 @Singleton()
 class SGGoRouter {
   final GoRouter goRoute = GoRouter(
-    initialLocation: SGRoute.firstScreen.route,
+    initialLocation: SGRoute.login.route,
     routes: <GoRoute>[
       GoRoute(
         path: SGRoute.firstScreen.route,
@@ -41,6 +42,11 @@ class SGGoRouter {
         path: SGRoute.secondScreen.route,
         builder: (BuildContext context, GoRouterState state) =>
             const SecondScreen(),
+      ).fade(),
+      GoRoute(
+        path: SGRoute.login.route,
+        builder: (BuildContext context, GoRouterState state) =>
+            const LoginScreen(),
       ).fade(),
     ],
   );

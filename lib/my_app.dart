@@ -3,6 +3,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'config/theme/theme_logic.dart';
 import 'config/theme/theme_ui_model.dart';
@@ -64,6 +65,36 @@ class MyApp extends ConsumerWidget {
     );
   }
 }
+
+final TextTheme textTheme = TextTheme(
+  displayLarge: GoogleFonts.notoSansElbasan(
+    fontSize: 45,
+  ),
+  displayMedium: GoogleFonts.notoSansElbasan(
+    fontSize: 40,
+  ),
+  displaySmall: GoogleFonts.notoSansElbasan(
+    fontSize: 36,
+  ),
+  labelLarge: GoogleFonts.notoSansElbasan(
+    fontSize: 32,
+  ),
+  labelMedium: GoogleFonts.notoSansElbasan(
+    fontSize: 20,
+  ),
+  labelSmall: GoogleFonts.notoSansElbasan(
+    fontSize: 18,
+  ),
+  bodyLarge: GoogleFonts.notoSansElbasan(
+    fontSize: 16,
+  ),
+  bodyMedium: GoogleFonts.notoSansElbasan(
+    fontSize: 14,
+  ),
+  bodySmall: GoogleFonts.notoSansElbasan(
+    fontSize: 12,
+  ),
+);
 
 Future<void> setPreferredOrientations() {
   return SystemChrome.setPreferredOrientations(<DeviceOrientation>[
