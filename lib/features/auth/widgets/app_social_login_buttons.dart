@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
 import '../../../constants/colors.dart';
-import '../../../router/app_router.dart';
+import '../controller/auth_controller.dart';
 
 class AppleLoginButton extends ConsumerWidget {
   const AppleLoginButton({super.key});
@@ -37,8 +36,14 @@ class GoogleLoginButton extends ConsumerWidget {
           backgroundColor: Colors.white,
           text: 'Google ile devam et',
           textColor: AppColors.tertieryText,
-          onPressed: () {
-            context.go(SGRoute.home.route);
+          onPressed: () async {
+            await ref
+                .read(authControllerProvider.notifier)
+                .signInWithGoogle()
+                .catchError((Object error) {
+              debugPrint('Error: $error');
+            });
+            debugPrint('Google Sign In');
           },
           borderRadius: 30),
     );

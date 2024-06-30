@@ -62,7 +62,7 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.1
   change_app_package_name: ^1.1.0
   url_launcher: ^6.1.11
-  intl: ^0.18.0
+  intl: ^0.18.1
   flutter_html: ^3.0.0-beta.2
   swipeable_tile: ^2.0.0+3
   flutter_swipe_action_cell: ^3.1.2
@@ -72,6 +72,9 @@ dependencies:
   google_fonts: ^6.2.1
   social_login_buttons: ^1.0.7
   awesome_snackbar_content: ^0.1.3
+  firebase_core: ^3.1.1
+  google_sign_in: ^6.2.1
+  firebase_auth: ^5.1.1
 
 
 dev_dependencies:
