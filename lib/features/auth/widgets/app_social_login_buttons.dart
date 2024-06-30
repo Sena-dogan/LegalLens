@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
 import '../../../constants/colors.dart';
+import '../../../router/app_router.dart';
+import '../../../utils/context_extensions.dart';
 import '../controller/auth_controller.dart';
 
 class AppleLoginButton extends ConsumerWidget {
@@ -37,10 +40,19 @@ class GoogleLoginButton extends ConsumerWidget {
           text: 'Google ile devam et',
           textColor: AppColors.tertieryText,
           onPressed: () async {
-            await ref.read(authControllerProvider.notifier).signInWithGoogle().catchError((Object error) {
-              debugPrint('Error: $error');
+            await ref
+                .read(authControllerProvider.notifier)
+                .signInWithGoogle()
+                // .then((bool value) => value
+                //     ? context.go(SGRoute.home.route)
+                //     : context.showErrorSnackBar(
+                //         message: 'Bir hata oluştu. Lütfen tekrar deneyiniz.'));
+                .catchError((Object error) {
+              context.showErrorSnackBar(
+                  message: 'Bir hata oluştu. Lütfen tekrar deneyiniz.');
+              throw error;
             });
-            debugPrint('Google Sign In');
+            context.go(SGRoute.home.route);
           },
           borderRadius: 30),
     );

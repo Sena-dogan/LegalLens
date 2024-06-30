@@ -39,6 +39,7 @@ class MyApp extends ConsumerWidget {
         visualDensity: FlexColorScheme.comfortablePlatformDensity,
         useMaterial3: true,
         swapLegacyOnMaterial3: true,
+        textTheme: textTheme,
         // To use the Playground font, add GoogleFonts package and uncomment
         // fontFamily: GoogleFonts.notoSans().fontFamily,
       ),
@@ -54,6 +55,8 @@ class MyApp extends ConsumerWidget {
         visualDensity: FlexColorScheme.comfortablePlatformDensity,
         useMaterial3: true,
         swapLegacyOnMaterial3: true,
+        textTheme: textTheme,
+        fontFamily: GoogleFonts.notoSans().fontFamily,
         // To use the Playground font, add GoogleFonts package and uncomment
         // fontFamily: GoogleFonts.notoSans().fontFamily,
       ),
@@ -67,31 +70,31 @@ class MyApp extends ConsumerWidget {
 }
 
 final TextTheme textTheme = TextTheme(
-  displayLarge: GoogleFonts.notoSansElbasan(
+  displayLarge: GoogleFonts.notoSans(
     fontSize: 45,
   ),
-  displayMedium: GoogleFonts.notoSansElbasan(
+  displayMedium: GoogleFonts.notoSans(
     fontSize: 40,
   ),
-  displaySmall: GoogleFonts.notoSansElbasan(
+  displaySmall: GoogleFonts.notoSans(
     fontSize: 36,
   ),
-  labelLarge: GoogleFonts.notoSansElbasan(
+  labelLarge: GoogleFonts.notoSans(
     fontSize: 32,
   ),
-  labelMedium: GoogleFonts.notoSansElbasan(
+  labelMedium: GoogleFonts.notoSans(
     fontSize: 20,
   ),
-  labelSmall: GoogleFonts.notoSansElbasan(
+  labelSmall: GoogleFonts.notoSans(
     fontSize: 18,
   ),
-  bodyLarge: GoogleFonts.notoSansElbasan(
+  bodyLarge: GoogleFonts.notoSans(
     fontSize: 16,
   ),
-  bodyMedium: GoogleFonts.notoSansElbasan(
+  bodyMedium: GoogleFonts.notoSans(
     fontSize: 14,
   ),
-  bodySmall: GoogleFonts.notoSansElbasan(
+  bodySmall: GoogleFonts.notoSans(
     fontSize: 12,
   ),
 );
