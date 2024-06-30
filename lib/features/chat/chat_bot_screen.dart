@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../constants/colors.dart';
 import '../../utils/context_extensions.dart';
+import 'widgets/user_input.dart';
 
 class ChatBotScreen extends ConsumerWidget {
   const ChatBotScreen({super.key});
@@ -10,24 +11,27 @@ class ChatBotScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text(
-          'PolicyAnalyzer',
-          style: context.textTheme.labelSmall?.copyWith(
-            color: Colors.white,
+        backgroundColor: AppColors.background,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Text(
+            'PolicyAnalyzer',
+            style: context.textTheme.labelSmall?.copyWith(
+              color: Colors.white,
+            ),
           ),
         ),
-      ),
-      body: const Center(
-        child: Text(
-          'Chat Bot Screen',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+        body: Column(
+          children: <Widget>[
+            Divider(
+              color: Colors.grey.withOpacity(0.1),
+            ),
+            const Spacer(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: UserInput(onSendMessage: () {}),
+            )
+          ],
+        ));
   }
 }
