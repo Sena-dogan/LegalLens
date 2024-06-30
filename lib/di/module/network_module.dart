@@ -33,7 +33,7 @@ abstract class NetworkModule {
       }
       ..interceptors.add(LogInterceptor(
         request: false,
-        responseBody: true,
+        responseBody: false,
         requestHeader: false,
       ))
       ..interceptors.add(DioNetworkLogger())

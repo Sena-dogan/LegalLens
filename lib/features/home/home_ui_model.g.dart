@@ -12,6 +12,10 @@ _$HomeUiModelImpl _$$HomeUiModelImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => AppModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const <AppModel>[],
+      filteredApps: (json['filteredApps'] as List<dynamic>?)
+              ?.map((e) => AppModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AppModel>[],
       error: json['error'] as String? ?? null,
       isLoading: json['isLoading'] as bool? ?? false,
       slug: json['slug'] as String? ?? null,
@@ -28,6 +32,7 @@ _$HomeUiModelImpl _$$HomeUiModelImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$HomeUiModelImplToJson(_$HomeUiModelImpl instance) =>
     <String, dynamic>{
       'apps': instance.apps,
+      'filteredApps': instance.filteredApps,
       'error': instance.error,
       'isLoading': instance.isLoading,
       'slug': instance.slug,

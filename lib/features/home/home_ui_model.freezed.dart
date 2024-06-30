@@ -21,6 +21,7 @@ HomeUiModel _$HomeUiModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HomeUiModel {
   List<AppModel> get apps => throw _privateConstructorUsedError;
+  List<AppModel> get filteredApps => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get slug => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $HomeUiModelCopyWith<$Res> {
   @useResult
   $Res call(
       {List<AppModel> apps,
+      List<AppModel> filteredApps,
       String? error,
       bool isLoading,
       String? slug,
@@ -62,6 +64,7 @@ class _$HomeUiModelCopyWithImpl<$Res, $Val extends HomeUiModel>
   @override
   $Res call({
     Object? apps = null,
+    Object? filteredApps = null,
     Object? error = freezed,
     Object? isLoading = null,
     Object? slug = freezed,
@@ -72,6 +75,10 @@ class _$HomeUiModelCopyWithImpl<$Res, $Val extends HomeUiModel>
       apps: null == apps
           ? _value.apps
           : apps // ignore: cast_nullable_to_non_nullable
+              as List<AppModel>,
+      filteredApps: null == filteredApps
+          ? _value.filteredApps
+          : filteredApps // ignore: cast_nullable_to_non_nullable
               as List<AppModel>,
       error: freezed == error
           ? _value.error
@@ -107,6 +114,7 @@ abstract class _$$HomeUiModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<AppModel> apps,
+      List<AppModel> filteredApps,
       String? error,
       bool isLoading,
       String? slug,
@@ -126,6 +134,7 @@ class __$$HomeUiModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? apps = null,
+    Object? filteredApps = null,
     Object? error = freezed,
     Object? isLoading = null,
     Object? slug = freezed,
@@ -136,6 +145,10 @@ class __$$HomeUiModelImplCopyWithImpl<$Res>
       apps: null == apps
           ? _value._apps
           : apps // ignore: cast_nullable_to_non_nullable
+              as List<AppModel>,
+      filteredApps: null == filteredApps
+          ? _value._filteredApps
+          : filteredApps // ignore: cast_nullable_to_non_nullable
               as List<AppModel>,
       error: freezed == error
           ? _value.error
@@ -166,12 +179,14 @@ class __$$HomeUiModelImplCopyWithImpl<$Res>
 class _$HomeUiModelImpl implements _HomeUiModel {
   const _$HomeUiModelImpl(
       {final List<AppModel> apps = const <AppModel>[],
+      final List<AppModel> filteredApps = const <AppModel>[],
       this.error = null,
       this.isLoading = false,
       this.slug = null,
       final List<String> questions = const <String>[],
       final List<QuestionResponse> answers = const <QuestionResponse>[]})
       : _apps = apps,
+        _filteredApps = filteredApps,
         _questions = questions,
         _answers = answers;
 
@@ -185,6 +200,15 @@ class _$HomeUiModelImpl implements _HomeUiModel {
     if (_apps is EqualUnmodifiableListView) return _apps;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_apps);
+  }
+
+  final List<AppModel> _filteredApps;
+  @override
+  @JsonKey()
+  List<AppModel> get filteredApps {
+    if (_filteredApps is EqualUnmodifiableListView) return _filteredApps;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filteredApps);
   }
 
   @override
@@ -216,7 +240,7 @@ class _$HomeUiModelImpl implements _HomeUiModel {
 
   @override
   String toString() {
-    return 'HomeUiModel(apps: $apps, error: $error, isLoading: $isLoading, slug: $slug, questions: $questions, answers: $answers)';
+    return 'HomeUiModel(apps: $apps, filteredApps: $filteredApps, error: $error, isLoading: $isLoading, slug: $slug, questions: $questions, answers: $answers)';
   }
 
   @override
@@ -225,6 +249,8 @@ class _$HomeUiModelImpl implements _HomeUiModel {
         (other.runtimeType == runtimeType &&
             other is _$HomeUiModelImpl &&
             const DeepCollectionEquality().equals(other._apps, _apps) &&
+            const DeepCollectionEquality()
+                .equals(other._filteredApps, _filteredApps) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
@@ -239,6 +265,7 @@ class _$HomeUiModelImpl implements _HomeUiModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_apps),
+      const DeepCollectionEquality().hash(_filteredApps),
       error,
       isLoading,
       slug,
@@ -262,6 +289,7 @@ class _$HomeUiModelImpl implements _HomeUiModel {
 abstract class _HomeUiModel implements HomeUiModel {
   const factory _HomeUiModel(
       {final List<AppModel> apps,
+      final List<AppModel> filteredApps,
       final String? error,
       final bool isLoading,
       final String? slug,
@@ -273,6 +301,8 @@ abstract class _HomeUiModel implements HomeUiModel {
 
   @override
   List<AppModel> get apps;
+  @override
+  List<AppModel> get filteredApps;
   @override
   String? get error;
   @override

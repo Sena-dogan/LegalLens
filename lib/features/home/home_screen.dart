@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,7 +26,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     //final HomeController homeLogic = ref.watch(homeControllerProvider.notifier);
     final HomeUiModel state = ref.watch(homeControllerProvider);
     final AsyncValue<AppResponse> appData = ref.watch(fetchAppsProvider);
-    debugPrint('HomeScreen: $state');
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: const EmptyAppBar(),
@@ -76,19 +76,23 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ),
           const HomeSearchBar(),
           //TODO: Refactor this to not use the shrinkWrap property
-          ListView.builder(
-              shrinkWrap: true,
-              itemCount: state.apps.length,
-              itemBuilder: (BuildContext context, int index) {
-                final AppModel app = state.apps[index];
-                return HomeAppCard(
-                  color: index.isEven ? AppColors.primary : AppColors.secondary,
-                  title: app.name ?? '',
-                  onTap: () {
-                    context.go(SGRoute.chatbot.route);
-                  },
-                );
-              }),
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height * 0.6,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: state.apps.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final AppModel app = state.apps[index];
+                  return HomeAppCard(
+                    color: index.isEven ? AppColors.primary : AppColors.secondary,
+                    title: app.name ?? '',
+                    onTap: () {
+                      ref.read(homeControllerProvider.notifier).setSlug(app.slug ?? '');
+                      context.push(SGRoute.chatbot.route);
+                    },
+                  );
+                }),
+          ),
           // SingleChildScrollView(
           //   child: Column(
           //     children: <Widget>[

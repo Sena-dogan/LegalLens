@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../constants/colors.dart';
+import '../controller/home_controller.dart';
 
 class HomeSearchBar extends ConsumerWidget {
   const HomeSearchBar({super.key});
@@ -9,6 +10,9 @@ class HomeSearchBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return TextField(
+      onChanged: (String value) {
+        ref.read(homeControllerProvider.notifier).searchApps(value);
+      },
       decoration: InputDecoration(
         hintText: 'Search...',
         prefixIcon: const Icon(Icons.search),

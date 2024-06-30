@@ -20,7 +20,7 @@ final fetchAppsProvider = AutoDisposeFutureProvider<AppResponse>.internal(
 );
 
 typedef FetchAppsRef = AutoDisposeFutureProviderRef<AppResponse>;
-String _$homeControllerHash() => r'68ee8fce0a7b03513558950289b3c734beb18ddc';
+String _$homeControllerHash() => r'bf44c7482864791180f4a332a120d5abc41cb5a2';
 
 /// See also [HomeController].
 @ProviderFor(HomeController)

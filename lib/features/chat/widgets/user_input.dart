@@ -49,7 +49,6 @@ class _UserInputState extends ConsumerState<UserInput> {
               cursorColor: AppColors.primary,
               controller: _messageController,
               decoration: InputDecoration(
-                fillColor: Colors.white,
                 hoverColor: AppColors.quaternary,
                 border: _messageFieldBorder(context),
                 enabledBorder: _messageFieldBorder(context),

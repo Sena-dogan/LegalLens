@@ -10,6 +10,7 @@ part 'home_ui_model.g.dart';
 class HomeUiModel with _$HomeUiModel {
   const factory HomeUiModel({
     @Default(<AppModel>[]) List<AppModel> apps,
+    @Default(<AppModel>[]) List<AppModel> filteredApps,
     @Default(null) String? error,
     @Default(false) bool isLoading,
     @Default(null) String? slug,

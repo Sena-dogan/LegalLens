@@ -14,7 +14,7 @@ abstract class AppRestClient {
   @GET('/apps')
   Future<AppResponse> getApps();
 
-  @POST('/apps/{appSlug}/policies/question={question}')
+  @GET('/apps/{appSlug}/policies/question={question}')
   Future<QuestionResponse> postPolicy(
     @Path('appSlug') String appSlug,
     @Path('question') String question,

@@ -20,7 +20,7 @@ class ChatBotScreen extends ConsumerWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text(
-            'PolicyAnalyzer',
+            'Legal Lens',
             style: context.textTheme.labelSmall?.copyWith(
               color: Colors.white,
             ),
