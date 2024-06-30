@@ -10,7 +10,7 @@ class UserInput extends ConsumerStatefulWidget {
     required this.onSendMessage,
   });
 
-  final Function() onSendMessage;
+  final Future<void> Function(String) onSendMessage;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _UserInputState();
@@ -77,7 +77,11 @@ class _UserInputState extends ConsumerState<UserInput> {
                 size: 20,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                final String message = _messageController.text;
+                _messageController.clear();
+                widget.onSendMessage(message);
+              },
             ),
           ),
         ],

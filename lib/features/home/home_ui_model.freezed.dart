@@ -23,6 +23,9 @@ mixin _$HomeUiModel {
   List<AppModel> get apps => throw _privateConstructorUsedError;
   String? get error => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  String? get slug => throw _privateConstructorUsedError;
+  List<String> get questions => throw _privateConstructorUsedError;
+  List<QuestionResponse> get answers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +39,13 @@ abstract class $HomeUiModelCopyWith<$Res> {
           HomeUiModel value, $Res Function(HomeUiModel) then) =
       _$HomeUiModelCopyWithImpl<$Res, HomeUiModel>;
   @useResult
-  $Res call({List<AppModel> apps, String? error, bool isLoading});
+  $Res call(
+      {List<AppModel> apps,
+      String? error,
+      bool isLoading,
+      String? slug,
+      List<String> questions,
+      List<QuestionResponse> answers});
 }
 
 /// @nodoc
@@ -55,6 +64,9 @@ class _$HomeUiModelCopyWithImpl<$Res, $Val extends HomeUiModel>
     Object? apps = null,
     Object? error = freezed,
     Object? isLoading = null,
+    Object? slug = freezed,
+    Object? questions = null,
+    Object? answers = null,
   }) {
     return _then(_value.copyWith(
       apps: null == apps
@@ -69,6 +81,18 @@ class _$HomeUiModelCopyWithImpl<$Res, $Val extends HomeUiModel>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      questions: null == questions
+          ? _value.questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      answers: null == answers
+          ? _value.answers
+          : answers // ignore: cast_nullable_to_non_nullable
+              as List<QuestionResponse>,
     ) as $Val);
   }
 }
@@ -81,7 +105,13 @@ abstract class _$$HomeUiModelImplCopyWith<$Res>
       __$$HomeUiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AppModel> apps, String? error, bool isLoading});
+  $Res call(
+      {List<AppModel> apps,
+      String? error,
+      bool isLoading,
+      String? slug,
+      List<String> questions,
+      List<QuestionResponse> answers});
 }
 
 /// @nodoc
@@ -98,6 +128,9 @@ class __$$HomeUiModelImplCopyWithImpl<$Res>
     Object? apps = null,
     Object? error = freezed,
     Object? isLoading = null,
+    Object? slug = freezed,
+    Object? questions = null,
+    Object? answers = null,
   }) {
     return _then(_$HomeUiModelImpl(
       apps: null == apps
@@ -112,6 +145,18 @@ class __$$HomeUiModelImplCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      slug: freezed == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String?,
+      questions: null == questions
+          ? _value._questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      answers: null == answers
+          ? _value._answers
+          : answers // ignore: cast_nullable_to_non_nullable
+              as List<QuestionResponse>,
     ));
   }
 }
@@ -122,8 +167,13 @@ class _$HomeUiModelImpl implements _HomeUiModel {
   const _$HomeUiModelImpl(
       {final List<AppModel> apps = const <AppModel>[],
       this.error = null,
-      this.isLoading = false})
-      : _apps = apps;
+      this.isLoading = false,
+      this.slug = null,
+      final List<String> questions = const <String>[],
+      final List<QuestionResponse> answers = const <QuestionResponse>[]})
+      : _apps = apps,
+        _questions = questions,
+        _answers = answers;
 
   factory _$HomeUiModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomeUiModelImplFromJson(json);
@@ -143,10 +193,30 @@ class _$HomeUiModelImpl implements _HomeUiModel {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final String? slug;
+  final List<String> _questions;
+  @override
+  @JsonKey()
+  List<String> get questions {
+    if (_questions is EqualUnmodifiableListView) return _questions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_questions);
+  }
+
+  final List<QuestionResponse> _answers;
+  @override
+  @JsonKey()
+  List<QuestionResponse> get answers {
+    if (_answers is EqualUnmodifiableListView) return _answers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_answers);
+  }
 
   @override
   String toString() {
-    return 'HomeUiModel(apps: $apps, error: $error, isLoading: $isLoading)';
+    return 'HomeUiModel(apps: $apps, error: $error, isLoading: $isLoading, slug: $slug, questions: $questions, answers: $answers)';
   }
 
   @override
@@ -157,13 +227,23 @@ class _$HomeUiModelImpl implements _HomeUiModel {
             const DeepCollectionEquality().equals(other._apps, _apps) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
+            const DeepCollectionEquality()
+                .equals(other._questions, _questions) &&
+            const DeepCollectionEquality().equals(other._answers, _answers));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_apps), error, isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_apps),
+      error,
+      isLoading,
+      slug,
+      const DeepCollectionEquality().hash(_questions),
+      const DeepCollectionEquality().hash(_answers));
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +263,10 @@ abstract class _HomeUiModel implements HomeUiModel {
   const factory _HomeUiModel(
       {final List<AppModel> apps,
       final String? error,
-      final bool isLoading}) = _$HomeUiModelImpl;
+      final bool isLoading,
+      final String? slug,
+      final List<String> questions,
+      final List<QuestionResponse> answers}) = _$HomeUiModelImpl;
 
   factory _HomeUiModel.fromJson(Map<String, dynamic> json) =
       _$HomeUiModelImpl.fromJson;
@@ -194,6 +277,12 @@ abstract class _HomeUiModel implements HomeUiModel {
   String? get error;
   @override
   bool get isLoading;
+  @override
+  String? get slug;
+  @override
+  List<String> get questions;
+  @override
+  List<QuestionResponse> get answers;
   @override
   @JsonKey(ignore: true)
   _$$HomeUiModelImplCopyWith<_$HomeUiModelImpl> get copyWith =>

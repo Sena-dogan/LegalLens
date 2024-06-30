@@ -6,7 +6,7 @@ part of 'home_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchAppsHash() => r'f2e965a2756fa3885c4f16d8ef9723e3a0a0e9db';
+String _$fetchAppsHash() => r'10992a1279a57ce2ae47075006d4fd00d7d28be6';
 
 /// See also [fetchApps].
 @ProviderFor(fetchApps)
@@ -20,7 +20,7 @@ final fetchAppsProvider = AutoDisposeFutureProvider<AppResponse>.internal(
 );
 
 typedef FetchAppsRef = AutoDisposeFutureProviderRef<AppResponse>;
-String _$homeControllerHash() => r'd837fb50cc9f5e2614fc1f6e34ac9ba77b56b312';
+String _$homeControllerHash() => r'68ee8fce0a7b03513558950289b3c734beb18ddc';
 
 /// See also [HomeController].
 @ProviderFor(HomeController)
