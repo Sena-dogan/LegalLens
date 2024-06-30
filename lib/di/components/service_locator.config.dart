@@ -15,8 +15,10 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../../data/getstore/get_store_helper.dart' as _i6;
 import '../../data/hive/hive_helper.dart' as _i4;
+import '../../features/home/service/app_api.dart' as _i9;
+import '../../features/home/service/app_rest_client.dart' as _i8;
 import '../../router/app_router.dart' as _i5;
-import '../module/network_module.dart' as _i8;
+import '../module/network_module.dart' as _i10;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -42,8 +44,13 @@ extension GetItInjectableX on _i1.GetIt {
       () => networkModule.provideDio(gh<_i6.GetStoreHelper>()),
       preResolve: true,
     );
+    await gh.factoryAsync<_i8.AppRestClient>(
+      () => networkModule.provideAppRestClient(gh<_i7.Dio>()),
+      preResolve: true,
+    );
+    gh.factory<_i9.AppApi>(() => _i9.AppApi(gh<_i8.AppRestClient>()));
     return this;
   }
 }
 
-class _$NetworkModule extends _i8.NetworkModule {}
+class _$NetworkModule extends _i10.NetworkModule {}

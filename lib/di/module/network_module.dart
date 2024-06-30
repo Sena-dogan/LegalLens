@@ -8,6 +8,7 @@ import 'package:network_logger/network_logger.dart';
 
 import '../../constants/endpoints.dart';
 import '../../data/getstore/get_store_helper.dart';
+import '../../features/home/service/app_rest_client.dart';
 
 /// NetworkModule is used to register network related dependencies.
 /// @module is used to register the module.
@@ -55,5 +56,10 @@ abstract class NetworkModule {
   @preResolve
   Future<GetStorage> provideGetStorage() {
     return Future.value(GetStorage());
+  }
+
+  @preResolve
+  Future<AppRestClient> provideAppRestClient(Dio dio) {
+    return Future.value(AppRestClient(dio));
   }
 }
