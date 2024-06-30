@@ -7,6 +7,7 @@ import 'package:injectable/injectable.dart';
 import '../data/getstore/get_store_helper.dart';
 import '../di/components/service_locator.dart';
 import '../features/auth/login_screen.dart';
+import '../features/chat/chat_bot_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/info/info_screen.dart';
 import 'fade_extension.dart';
@@ -22,6 +23,7 @@ enum SGRoute {
   forgotPassword,
   profile,
   editProfile,
+  chatbot,
   changePassword;
 
   String get route => '/${toString().replaceAll('SGRoute.', '')}';
@@ -36,7 +38,7 @@ class SGGoRouter {
       GoRoute(
         path: SGRoute.home.route,
         builder: (BuildContext context, GoRouterState state) =>
-             const HomeScreen(),
+            const HomeScreen(),
       ).fade(),
       GoRoute(
         path: SGRoute.secondScreen.route,
@@ -47,6 +49,11 @@ class SGGoRouter {
         path: SGRoute.login.route,
         builder: (BuildContext context, GoRouterState state) =>
             const LoginScreen(),
+      ).fade(),
+      GoRoute(
+        path: SGRoute.chatbot.route,
+        builder: (BuildContext context, GoRouterState state) =>
+            const ChatBotScreen(),
       ).fade(),
     ],
   );
