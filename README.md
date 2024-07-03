@@ -1,6 +1,3 @@
-Sure, let's make your README more detailed and professional. Here's an improved version:
-
----
 
 # LegalLens
 
