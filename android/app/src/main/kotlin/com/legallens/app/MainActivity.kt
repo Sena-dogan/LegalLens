@@ -1,4 +1,4 @@
-package boilerplate.template.riveprod
+package com.legallens.app
 
 import io.flutter.embedding.android.FlutterActivity
 
